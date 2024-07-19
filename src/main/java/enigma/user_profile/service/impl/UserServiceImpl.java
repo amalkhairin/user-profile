@@ -40,6 +40,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public String getImageUrl(Long id) {
+        User user = this.getById(id);
+        return user.getProfilePicture();
+    }
+
+    @Override
     public User updateProfilePicture(MultipartFile file, Long id) {
         User user = this.getById(id);
         String url = cloudinaryService.uploadFile(file, "user_profile");

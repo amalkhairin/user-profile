@@ -22,22 +22,27 @@ public class UserController {
     private final PdfGenerateService pdfGenerateService;
 
     @PostMapping
-    public User create(UserDTO req) {
+    public ResponseEntity<User> create(UserDTO req) {
 //        req.setProfilePicture(file);
-        return userService.create(req);
+        return ResponseEntity.ok(userService.create(req));
     }
 
     @GetMapping
-    public List<User>  getAll() {
-        return userService.getAll();
+    public ResponseEntity<List<User>>  getAll() {
+        return ResponseEntity.ok(userService.getAll());
     }
 
     @PutMapping("/update_image/{id}")
-    public User updateProfilePicture(@PathVariable Long id, UserDTO userDTO) {
-        return userService.updateProfilePicture(userDTO.getProfilePicture(), id);
+    public ResponseEntity<User> updateProfilePicture(@PathVariable Long id, UserDTO userDTO) {
+        return ResponseEntity.ok(userService.updateProfilePicture(userDTO.getProfilePicture(), id));
     }
 
-    @GetMapping("/getPicturePdf/{id}")
+    @GetMapping("/get_img_url/{id}")
+    public ResponseEntity<String> getImageUrl(@PathVariable Long id) {
+        return ResponseEntity.ok(userService.getImageUrl(id));
+    }
+
+    @GetMapping("/get_picture_pdf/{id}")
     public ResponseEntity<ByteArrayResource> getPdfFromUserId(@PathVariable Long id) {
         ByteArrayResource pdf = pdfGenerateService.getPdfFromUserId(id);
         return ResponseEntity.ok()
