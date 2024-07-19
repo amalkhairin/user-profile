@@ -47,6 +47,7 @@ public class UserController {
         ByteArrayResource pdf = pdfGenerateService.getPdfFromUserId(id);
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=image_" + id + ".pdf")
+                .header(HttpHeaders.CONTENT_TYPE, "application/pdf")
                 .contentLength(pdf.contentLength())
                 .body(pdf);
     }
