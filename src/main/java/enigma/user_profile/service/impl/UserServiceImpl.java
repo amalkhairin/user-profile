@@ -3,10 +3,12 @@ package enigma.user_profile.service.impl;
 import enigma.user_profile.model.User;
 import enigma.user_profile.repository.UserRepository;
 import enigma.user_profile.service.CloudinaryService;
+import enigma.user_profile.service.PdfService;
 import enigma.user_profile.service.UserService;
 import enigma.user_profile.utils.UserDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
