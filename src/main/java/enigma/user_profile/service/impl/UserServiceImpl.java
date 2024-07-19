@@ -34,17 +34,20 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAll() {
-        return List.of();
+        return userRepository.findAll();
     }
 
     @Override
-    public User updateProfilePicture(MultipartFile file) {
-        return null;
+    public User updateProfilePicture(MultipartFile file, Long id) {
+        User user = this.getById(id);
+        String url = cloudinaryService.uploadFile(file, "user_profile");
+        user.setProfilePicture(url);
+        return userRepository.save(user);
     }
 
     @Override
     public User getById(Long id) {
-        return null;
+        return userRepository.findById(id).orElse(null);
     }
 
     @Override

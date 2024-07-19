@@ -9,7 +9,7 @@ import java.util.List;
 public interface UserService {
     User create(UserDTO req);
     List<User> getAll();
-    User updateProfilePicture(MultipartFile file);
+    User updateProfilePicture(MultipartFile file, Long id);
     User getById(Long id);
     User update(Long id, UserDTO req);
     void delete(Long id);
