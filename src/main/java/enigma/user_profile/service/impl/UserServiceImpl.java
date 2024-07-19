@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User updateProfilePicture(MultipartFile file, Long id) {
         User user = this.getById(id);
-        String url = cloudinaryService.uploadFile(file, "user_profile");
+        String url = cloudinaryService.updateFile(user.getProfilePicture(), file, "user_profile");
         user.setProfilePicture(url);
         return userRepository.save(user);
     }
