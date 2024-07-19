@@ -20,8 +20,8 @@ User endpoints
 
 | Name                              | Method | Endpoint                    |
 |-----------------------------------|--------|-----------------------------|
-| Create User                       | POST   | /users                      |
-| Get All User                      | GET    | /users                      |
-| Update Profile Picture            | PUT    | /users/update_image/{id}    |
-| Get PDF of user's profile picture | GET    | /users/get_picture_pdf/{id} |
-| Get User's profile picture url    | GET    | /users/get_img_url/{id}     |
+| Create User                       | POST   | `/users`                      |
+| Get All User                      | GET    | `/users`                      |
+| Update Profile Picture            | PUT    | `/users/update_image/{id}`    |
+| Get PDF of user's profile picture | GET    | `/users/get_picture_pdf/{id}` |
+| Get User's profile picture url    | GET    | `/users/get_img_url/{id}`     |
